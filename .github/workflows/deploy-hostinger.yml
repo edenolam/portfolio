@@ -1,0 +1,43 @@
+name: Déployer le portfolio sur Hostinger
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-hostinger
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          persist-credentials: false
+
+      - name: Déployer le site racine
+        env:
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          read -r main_sha _ < <(git ls-remote --exit-code origin refs/heads/main)
+          if [[ $(git rev-parse HEAD) != "$main_sha" ]]; then
+            echo "Ce commit fusionné a été remplacé sur main."
+            exit 0
+          fi
+          : "${HOSTINGER_SSH_KEY:?Secret HOSTINGER_SSH_KEY manquant}"
+          : "${HOSTINGER_KNOWN_HOSTS:?Secret HOSTINGER_KNOWN_HOSTS manquant}"
+          umask 077
+          ssh_dir=$(mktemp -d)
+          trap 'rm -rf -- "$ssh_dir"' EXIT
+          printf '%s\n' "$HOSTINGER_SSH_KEY" > "$ssh_dir/key"
+          printf '%s\n' "$HOSTINGER_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+          bash scripts/deploy-hostinger.sh "$ssh_dir/key" "$ssh_dir/known_hosts"
