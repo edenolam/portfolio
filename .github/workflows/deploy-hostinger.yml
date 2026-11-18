@@ -3,17 +3,32 @@ name: Déployer le portfolio sur Hostinger
 on:
   pull_request:
     branches: [main]
-    types: [closed]
+    types: [opened, synchronize, reopened, closed]
 
 permissions:
   contents: read
 
-concurrency:
-  group: portfolio-hostinger
-
 jobs:
+  phpstan:
+    name: PHPStan
+    if: github.event.action != 'closed' || github.event.pull_request.merged == true
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.action == 'closed' && github.event.pull_request.merge_commit_sha || github.sha }}
+          persist-credentials: false
+      - name: Installer les dépendances
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Analyser le code PHP
+        run: composer analyse
+
   deploy:
-    if: github.event.pull_request.merged == true
+    needs: phpstan
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    concurrency:
+      group: portfolio-hostinger
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:

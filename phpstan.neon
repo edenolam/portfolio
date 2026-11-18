@@ -1,0 +1,7 @@
+parameters:
+    level: 5
+    paths:
+        - index.php
+        - sendmail.php
+    scanDirectories:
+        - phpmailer/PHPMailer-master/src
