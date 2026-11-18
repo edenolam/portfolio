@@ -7,7 +7,7 @@ mode=${3:-deploy}
 target=u262228329@185.166.188.94
 domain=/home/u262228329/domains/edenolam.com
 public="$domain/public_html"
-files=(index.php sendmail.php cv.pdf robots.txt sitemap.xml)
+files=(index.php sendmail.php robots.txt sitemap.xml)
 directories=(css img js phpmailer)
 
 [[ $mode == deploy || $mode == --dry-run ]]
@@ -16,7 +16,10 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 "${PHP_BIN:-php}" -l index.php
 "${PHP_BIN:-php}" -l sendmail.php
 for file in "${files[@]}"; do
-    [[ -f $file && ! -L $file ]]
+    if [[ ! -f $file || -L $file ]]; then
+        printf "Fichier de déploiement manquant ou invalide : %s\n" "$file" >&2
+        exit 1
+    fi
 done
 for directory in "${directories[@]}"; do
     [[ -d $directory && ! -L $directory ]]
