@@ -638,9 +638,9 @@
     <p class="jb-small"><a href="https://ai.edenolam.com/">AI</a></p>
     <p class="jb-small"><a href="https://annuaire-entreprises.edenolam.com/">ANNUAIRE-ENTREPRISES</a></p>
     <p class="jb-small"><a href="https://appointment.edenolam.com/">APPOINTMENT</a></p>
-    <!--<p class="jb-small"><a href="https://archaeologist.edenolam.com/">ARCHAEOLOGIST</a></p>-->
-    <!--<p class="jb-small"><a href="https://cv.edenolam.com/">CV</a></p>-->
-    <!--<p class="jb-small"><a href="http://formationhebreux.edenolam.com/">FORMATION HEBREU</a></p>-->
+    <p class="jb-small"><a href="https://archaeologist.edenolam.com/">ARCHAEOLOGIST</a></p>
+    <p class="jb-small"><a href="https://cv.edenolam.com/">CV</a></p>
+    <p class="jb-small"><a href="http://formationhebreux.edenolam.com/">FORMATION HEBREU</a></p>
     <p class="jb-small"><a href="https://formationhtml.edenolam.com/">FORMATIONHTML</a></p>
     <p class="jb-small"><a href="http://formationweb.edenolam.com/">FORMATION WEB</a></p>
     <p class="jb-small"><a href="https://freereads.edenolam.com/">FREEREADS</a></p>
@@ -649,17 +649,17 @@
     <p class="jb-small"><a href="https://indemnite.edenolam.com/">INDEMNITE</a></p>
     <p class="jb-small"><a href="https://intelligence-artificiel.edenolam.com/web/">INTELLIGENCE-ARTIFICIEL</a></p>
     <p class="jb-small"><a href="https://lexique-ia.edenolam.com/">LEXIQUE-IA</a></p>
-    <!--<p class="jb-small"><a href="https://liranyuzbegi.edenolam.com/">LIRANYUZBEGI</a></p>-->
+    <p class="jb-small"><a href="https://liranyuzbegi.edenolam.com/">LIRANYUZBEGI</a></p>
     <p class="jb-small"><a href="https://liste-ia.edenolam.com/">LISTE-IA</a></p>
     <p class="jb-small"><a href="http://lokisalle.edenolam.com/">LOKISALLE</a></p>
     <p class="jb-small"><a href="http://minichat.edenolam.com/">MINICHAT</a></p>
-    <!--<p class="jb-small"><a href="http://ngybeautystudio.edenolam.com/">NGYBEAUTYSTUDIO</a></p>-->
-    <!--<p class="jb-small"><a href="http://ngyfrenchteacher.edenolam.com/">NGYFRENCHTEACHER</a></p>-->
+    <p class="jb-small"><a href="http://ngybeautystudio.edenolam.com/">NGYBEAUTYSTUDIO</a></p>
+    <p class="jb-small"><a href="http://ngyfrenchteacher.edenolam.com/">NGYFRENCHTEACHER</a></p>
     <p class="jb-small"><a href="https://parimis.edenolam.com/">PARIMIS</a></p>
     <p class="jb-small"><a href="https://portfolio.edenolam.com/">PORTFOLIO</a></p>
     <p class="jb-small"><a href="https://portfolioifocop.edenolam.com/">PORTFOLIOIFOCOP</a></p>
     <p class="jb-small"><a href="https://prompt.edenolam.com/">PROMPT</a></p>
-    <!--<p class="jb-small"><a href="https://psychologuegozlan.edenolam.com/">PSYCHOLOGUEGOZLAN</a></p>-->
+    <p class="jb-small"><a href="https://psychologuegozlan.edenolam.com/">PSYCHOLOGUEGOZLAN</a></p>
     <p class="jb-small"><a href="https://rdvdoc.edenolam.com/">RDVDOC</a></p>
     <p class="jb-small"><a href="https://repassage.edenolam.com/">REPASSAGE</a></p>
     <p class="jb-small"><a href="https://skinbychoice.edenolam.com/">SKINBYCHOICE</a></p>
