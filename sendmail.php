@@ -40,7 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'contact@edenolam.com';
-        $mail->Password   = getenv('SMTP_PASSWORD') ?: '';
+        $password = getenv('SMTP_PASSWORD');
+        $passwordFile = dirname(__DIR__) . '/private/portfolio-smtp-password';
+        if (($password === false || $password === '') && is_readable($passwordFile)) {
+            $password = rtrim(file_get_contents($passwordFile), "\r\n");
+        }
+        $mail->Password = $password === false ? '' : $password;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mail->Port       = 587;
 
