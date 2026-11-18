@@ -1,0 +1,13 @@
+# Autorise tous les robots (Google, Bing, etc.)
+User-agent: *
+
+# Sécurité : Interdire l'accès aux dossiers sensibles et scripts
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+Disallow: /vendor/
+Disallow: /var/
+Disallow: /sendmail.php
+
+# SEO : Indiquer explicitement l'emplacement du sitemap
+Sitemap: https://edenolam.com/sitemap.xml
